@@ -1,0 +1,45 @@
+```python
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+# Load the Iris dataset
+iris = sns.load_dataset('iris')
+
+# Display the first few rows
+print('First 5 rows:')
+print(iris.head())
+
+# Explore the dataset structure
+print('\nDataset info:')
+print(iris.info())
+
+# Basic statistics
+print('\nBasic statistics:')
+print(iris.describe())
+
+# Grouping and mean calculation
+print('\nMean sepal length per species:')
+print(iris.groupby('species')['sepal_length'].mean())
+
+# Data Visualization
+plt.figure(figsize=(8, 6))
+sns.lineplot(data=iris, x='sepal_length', y='sepal_width')
+plt.title('Sepal Length vs. Sepal Width')
+plt.show()
+
+plt.figure(figsize=(8, 6))
+sns.barplot(data=iris, x='species', y='petal_length')
+plt.title('Average Petal Length per Species')
+plt.show()
+
+plt.figure(figsize=(8, 6))
+sns.histplot(iris['sepal_length'], kde=True)
+plt.title('Distribution of Sepal Length')
+plt.show()
+
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=iris, x='sepal_length', y='petal_length', hue='species')
+plt.title('Sepal Length vs. Petal Length')
+plt.show()
+```
